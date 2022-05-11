@@ -1,5 +1,5 @@
-import com.example.marvelapp.Dependencies
-import com.example.marvelapp.Version
+import com.example.buildsrc.Dependencies
+import com.example.buildsrc.Version
 
 plugins {
     id 'com.android.application'
@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation project(':core')
 
     Dependencies.AppModule.listLibs.forEach { dependency -> implementation dependency }
     Dependencies.AppModule.listKapt.forEach {dependency -> kapt dependency }
