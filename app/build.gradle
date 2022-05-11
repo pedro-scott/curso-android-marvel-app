@@ -10,6 +10,10 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+apply {
+    from '../config/detekt/detekt.gradle'
+}
+
 android {
     compileSdkVersion Version.Sdk.compileSdk
     buildToolsVersion Version.Sdk.buildTools
