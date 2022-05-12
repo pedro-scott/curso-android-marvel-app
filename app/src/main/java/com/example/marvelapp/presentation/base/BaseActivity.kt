@@ -1,7 +1,9 @@
 package com.example.marvelapp.presentation.base
 
 import android.os.Bundle
+import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewbinding.ViewBinding
 import com.example.marvelapp.util.ActivityInflater
 
@@ -17,4 +19,7 @@ abstract class BaseActivity<Binding : ViewBinding>(
             setContentView(viewBind.root)
         }
     }
+
+    protected fun findNavController(@IdRes navHostFragment: Int) =
+        (supportFragmentManager.findFragmentById(navHostFragment) as NavHostFragment).navController
 }

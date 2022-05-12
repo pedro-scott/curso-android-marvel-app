@@ -13,7 +13,7 @@ abstract class BaseFragment<Binding : ViewBinding>(
 ) : Fragment() {
 
     private var _binding: Binding? = null
-    protected val binding: Binding = _binding!!
+    protected val binding: Binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,4 +28,9 @@ abstract class BaseFragment<Binding : ViewBinding>(
             _binding = viewBind
             viewBind.root
         }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
