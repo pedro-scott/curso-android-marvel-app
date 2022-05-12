@@ -1,12 +1,8 @@
 package com.example.marvelapp.presentation
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.example.marvelapp.R
+import com.example.marvelapp.databinding.ActivityMainBinding
+import com.example.marvelapp.presentation.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-}
+class MainActivity : BaseActivity<ActivityMainBinding>(
+    inflater = ActivityMainBinding::inflate
+)
