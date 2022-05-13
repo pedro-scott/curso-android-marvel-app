@@ -39,7 +39,6 @@ object Version {
         const val paging = "3.1.1"
         const val glide = "4.12.0"
         const val shimmer = "0.5.0"
-        const val gson = "2.8.9"
         const val dataStore = "1.0.0"
         const val detekt = "1.20.0"
     }
