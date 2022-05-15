@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Margins-->
+    <dimen name="marginMedium">8dp</dimen>
+    <dimen name="marginDefault">16dp</dimen>
+    <dimen name="marginLarge">24dp</dimen>
+
+    <!--Radius-->
+    <dimen name="defaultRadius">4dp</dimen>
+
+    <!--Heights-->
+    <dimen name="heroBannerHeight">230dp</dimen>
+
+    <!--Text Sizes-->
+    <dimen name="textLarge">24sp</dimen>
+</resources>
