@@ -30,8 +30,6 @@ object Dependencies {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Libs.lifecycle}"
         const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.Libs.lifecycle}"
         const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Libs.lifecycle}"
-        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Libs.coroutines}"
-        const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Libs.coroutines}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Version.Libs.retrofit}"
         const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Version.Libs.retrofit}"
         const val okHttp = "com.squareup.okhttp3:okhttp"
@@ -75,8 +73,6 @@ object Dependencies {
             Libs.viewModel,
             Libs.liveData,
             Libs.runtime,
-            Libs.coroutinesCore,
-            Libs.coroutinesAndroid,
             Libs.hilt,
             Libs.paging,
             Libs.glide,
@@ -125,7 +121,8 @@ object Dependencies {
             TestLibs.junit,
             TestLibs.core,
             TestLibs.coroutines,
-            TestLibs.mockito
+            TestLibs.mockito,
+            TestLibs.room
         )
     }
 }
