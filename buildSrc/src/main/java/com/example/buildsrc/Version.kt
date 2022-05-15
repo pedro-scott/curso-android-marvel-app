@@ -2,18 +2,6 @@ package com.example.buildsrc
 
 object Version {
 
-    object Sdk {
-        const val compileSdk = 31
-        const val buildTools = "30.0.3"
-        const val minSdk = 23
-        const val targetSdk = 31
-    }
-
-    object App {
-        const val versionCode = 1
-        const val versionName = "1.0.0"
-    }
-
     object Classpaths {
         const val gradle = "7.1.1"
         const val kotlin = "1.6.21"
@@ -39,7 +27,6 @@ object Version {
         const val paging = "3.1.1"
         const val glide = "4.12.0"
         const val shimmer = "0.5.0"
-        const val gson = "2.8.9"
         const val dataStore = "1.0.0"
         const val detekt = "1.20.0"
     }

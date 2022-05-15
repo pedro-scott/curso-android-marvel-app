@@ -3,10 +3,10 @@ package com.example.buildsrc
 object Dependencies {
 
     object Classpaths {
-        const val gradle = "com.android.tools.build:gradle:${Version.Classpaths.gradle}"
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.Classpaths.kotlin}"
-        const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Version.Classpaths.hilt}"
-        const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Version.Classpaths.safeArgs}"
+        private const val gradle = "com.android.tools.build:gradle:${Version.Classpaths.gradle}"
+        private const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.Classpaths.kotlin}"
+        private const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Version.Classpaths.hilt}"
+        private const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Version.Classpaths.safeArgs}"
 
         val list = listOf(
             gradle,
@@ -42,7 +42,6 @@ object Dependencies {
         const val paging = "androidx.paging:paging-runtime-ktx:${Version.Libs.paging}"
         const val glide = "com.github.bumptech.glide:glide:${Version.Libs.glide}"
         const val shimmer = "com.facebook.shimmer:shimmer:${Version.Libs.shimmer}"
-        const val gson = "com.google.code.gson:gson:${Version.Libs.gson}"
         const val dataStore = "androidx.datastore:datastore-preferences:${Version.Libs.dataStore}"
     }
 
@@ -78,19 +77,10 @@ object Dependencies {
             Libs.runtime,
             Libs.coroutinesCore,
             Libs.coroutinesAndroid,
-            Libs.retrofit,
-            Libs.retrofitGson,
-            BoM.okHttp,
-            Libs.okHttp,
-            Libs.loggingInterceptor,
             Libs.hilt,
-            Libs.room,
-            Libs.roomRuntime,
             Libs.paging,
             Libs.glide,
-            Libs.shimmer,
-            Libs.gson,
-            Libs.dataStore
+            Libs.shimmer
         )
 
         val listKapt = listOf(
@@ -103,13 +93,39 @@ object Dependencies {
             TestLibs.junit,
             TestLibs.core,
             TestLibs.coroutines,
-            TestLibs.mockito,
-            TestLibs.room
+            TestLibs.mockito
         )
 
         val listAndroidTest = listOf(
             AndroidTestLibs.junit,
             AndroidTestLibs.espresso
+        )
+    }
+
+    object DataModule {
+        val listLibs = listOf(
+            Libs.retrofit,
+            Libs.retrofitGson,
+            BoM.okHttp,
+            Libs.okHttp,
+            Libs.loggingInterceptor,
+            Libs.hilt,
+            Libs.room,
+            Libs.roomRuntime,
+            Libs.paging,
+            Libs.dataStore
+        )
+
+        val listKapt = listOf(
+            Kapt.hilt,
+            Kapt.room
+        )
+
+        val listTest = listOf(
+            TestLibs.junit,
+            TestLibs.core,
+            TestLibs.coroutines,
+            TestLibs.mockito
         )
     }
 }

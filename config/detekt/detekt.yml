@@ -540,7 +540,15 @@ style:
     maxJumpCount: 1
   MagicNumber:
     active: true
-    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
+    excludes: [
+        '**/test/**',
+        '**/androidTest/**',
+        '**/commonTest/**',
+        '**/jvmTest/**',
+        '**/jsTest/**',
+        '**/iosTest/**',
+        '**/main/java/**/util/extension/**'
+    ]
     ignoreNumbers:
       - '-1'
       - '0'

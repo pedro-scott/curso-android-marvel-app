@@ -1,5 +1,5 @@
 import com.example.buildsrc.Dependencies
-import com.example.buildsrc.Version
+import com.example.buildsrc.Environment
 
 plugins {
     id 'com.android.application'
@@ -15,15 +15,15 @@ apply {
 }
 
 android {
-    compileSdkVersion Version.Sdk.compileSdk
-    buildToolsVersion Version.Sdk.buildTools
+    compileSdkVersion Environment.Sdk.compileSdk
+    buildToolsVersion Environment.Sdk.buildTools
 
     defaultConfig {
         applicationId "com.example.marvelapp"
-        minSdkVersion Version.Sdk.minSdk
-        targetSdkVersion Version.Sdk.targetSdk
-        versionCode Version.App.versionCode
-        versionName Version.App.versionName
+        minSdkVersion Environment.Sdk.minSdk
+        targetSdkVersion Environment.Sdk.targetSdk
+        versionCode Environment.Version.versionCode
+        versionName Environment.Version.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,7 +48,7 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
+    implementation project(':domain')
 
     Dependencies.AppModule.listLibs.forEach { dependency -> implementation dependency }
     Dependencies.AppModule.listKapt.forEach {dependency -> kapt dependency }
