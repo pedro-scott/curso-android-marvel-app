@@ -1,4 +1,4 @@
-import com.example.buildsrc.Enviroment
+import com.example.buildsrc.Environment
 
 plugins {
     id 'com.android.library'
@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion Enviroment.Sdk.compileSdk
+    compileSdkVersion Environment.Sdk.compileSdk
 
     externalNativeBuild {
         cmake {

@@ -1,6 +1,6 @@
 package com.example.buildsrc
 
-object Enviroment {
+object Environment {
 
     object Base {
         const val url = "\"https://gateway.marvel.com/v1/public/\""

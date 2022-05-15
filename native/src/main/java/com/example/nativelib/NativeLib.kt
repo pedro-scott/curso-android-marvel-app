@@ -8,4 +8,5 @@ object NativeLib {
 
     external fun publicKey(): String
     external fun privateKey(): String
+    external fun hashAlgorithm(): String
 }

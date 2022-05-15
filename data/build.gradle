@@ -1,5 +1,5 @@
 import com.example.buildsrc.Dependencies
-import com.example.buildsrc.Enviroment
+import com.example.buildsrc.Environment
 
 plugins {
     id 'com.android.library'
@@ -10,13 +10,15 @@ plugins {
 }
 
 android {
-    compileSdk Enviroment.Sdk.compileSdk
+    compileSdk Environment.Sdk.compileSdk
 
     defaultConfig {
-        minSdk Enviroment.Sdk.minSdk
-        targetSdk Enviroment.Sdk.targetSdk
+        minSdk Environment.Sdk.minSdk
+        targetSdk Environment.Sdk.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", Environment.Base.url
     }
 
     buildTypes {
