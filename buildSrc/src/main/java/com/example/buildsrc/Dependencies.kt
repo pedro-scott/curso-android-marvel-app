@@ -77,16 +77,10 @@ object Dependencies {
             Libs.runtime,
             Libs.coroutinesCore,
             Libs.coroutinesAndroid,
-            BoM.okHttp,
-            Libs.okHttp,
-            Libs.loggingInterceptor,
             Libs.hilt,
-            Libs.room,
-            Libs.roomRuntime,
             Libs.paging,
             Libs.glide,
-            Libs.shimmer,
-            Libs.dataStore
+            Libs.shimmer
         )
 
         val listKapt = listOf(
@@ -99,8 +93,7 @@ object Dependencies {
             TestLibs.junit,
             TestLibs.core,
             TestLibs.coroutines,
-            TestLibs.mockito,
-            TestLibs.room
+            TestLibs.mockito
         )
 
         val listAndroidTest = listOf(
@@ -109,10 +102,30 @@ object Dependencies {
         )
     }
 
-    object CoreModule {
+    object DataModule {
         val listLibs = listOf(
             Libs.retrofit,
             Libs.retrofitGson,
+            BoM.okHttp,
+            Libs.okHttp,
+            Libs.loggingInterceptor,
+            Libs.hilt,
+            Libs.room,
+            Libs.roomRuntime,
+            Libs.paging,
+            Libs.dataStore
+        )
+
+        val listKapt = listOf(
+            Kapt.hilt,
+            Kapt.room
+        )
+
+        val listTest = listOf(
+            TestLibs.junit,
+            TestLibs.core,
+            TestLibs.coroutines,
+            TestLibs.mockito
         )
     }
 }

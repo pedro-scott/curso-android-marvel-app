@@ -50,8 +50,7 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
-    implementation project(':native')
+    implementation project(':domain')
 
     Dependencies.AppModule.listLibs.forEach { dependency -> implementation dependency }
     Dependencies.AppModule.listKapt.forEach {dependency -> kapt dependency }

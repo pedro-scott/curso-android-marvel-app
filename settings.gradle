@@ -1,4 +1,5 @@
 rootProject.name = "curso-android-marvel-app"
 include ':app',
-        ':core',
+        ':domain',
+        ':data',
         ':native'
