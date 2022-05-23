@@ -68,11 +68,16 @@ class AuthorizationInterceptor : Interceptor {
         }
 
     companion object {
+        // REQUEST QUERIES
         private const val MARVEL_API_TS_QUERY = "ts"
         private const val MARVEL_API_KEY_QUERY = "apikey"
         private const val MARVEL_API_HASH_QUERY = "hash"
+
+        // BIG INTEGER
         private const val BIG_INTEGER_SIGNUM = 1
         private const val BIG_INTEGER_RADIX = 16
+
+        // REQUEST HASH
         private const val HASH_LENGTH = 32
         private const val HASH_CHAR = '0'
     }
