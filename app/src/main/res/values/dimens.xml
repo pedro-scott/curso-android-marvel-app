@@ -5,6 +5,9 @@
     <dimen name="marginDefault">16dp</dimen>
     <dimen name="marginLarge">24dp</dimen>
 
+    <!--Paddings-->
+    <dimen name="paddingMedium">8dp</dimen>
+
     <!--Radius-->
     <dimen name="defaultRadius">4dp</dimen>
 

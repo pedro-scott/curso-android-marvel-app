@@ -20,7 +20,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             tools:srcCompat="@drawable/ic_img_loading_error"
-            android:foreground="@drawable/bg_black_gradient"
             android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,16 +37,26 @@
             app:layout_constraintStart_toStartOf="@id/heroBannerIv"
             app:layout_constraintEnd_toEndOf="@id/heroBannerIv" />
 
-        <TextView
-            android:id="@+id/heroNameTv"
-            style="@style/MarvelTextView.Title.White"
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marginDefault"
-            tools:text="3D-Man"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0">
+
+            <TextView
+                android:id="@+id/heroNameTv"
+                style="@style/MarvelTextView.Title.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:paddingHorizontal="@dimen/paddingMedium"
+                android:background="@color/black_50"
+                tools:text="3D-Man" />
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
