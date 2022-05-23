@@ -1,14 +1,14 @@
 package com.example.marvelapp.presentation.heroes.adapter
 
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import com.example.domain.entities.heroes.Hero
 import dagger.hilt.android.scopes.FragmentScoped
 import javax.inject.Inject
 
 @FragmentScoped
-class HeroesAdapter @Inject constructor() : ListAdapter<Hero, HeroesViewHolder>(diffCallback) {
+class HeroesAdapter @Inject constructor() : PagingDataAdapter<Hero, HeroesViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -18,7 +18,11 @@ class HeroesAdapter @Inject constructor() : ListAdapter<Hero, HeroesViewHolder>(
     override fun onBindViewHolder(
         holder: HeroesViewHolder,
         position: Int
-    ) { holder.bind(getItem(position)) }
+    ) {
+        getItem(position)?.let { hero ->
+            holder.bind(hero)
+        }
+    }
 
     companion object {
         private val diffCallback =

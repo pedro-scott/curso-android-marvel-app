@@ -6,8 +6,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dagger.multibindings.IntoSet
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,15 +22,15 @@ class RemoteModule {
     fun provideRetrofit(
         converter: GsonConverterFactory,
         client: OkHttpClient
-    ): Retrofit.Builder {
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(client)
             .addConverterFactory(converter)
+            .build()
     }
 
     @Provides
-    @Singleton
     fun provideGsonConverter(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
@@ -40,27 +38,19 @@ class RemoteModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(
-        interceptors: Set<Interceptor>
+        loggingInterceptor: HttpLoggingInterceptor,
+        authorizationInterceptor: AuthorizationInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
-            .apply {
-                interceptors.forEach { addInterceptor(it) }
-            }
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(authorizationInterceptor)
             .build()
     }
 
     @Provides
-    @Singleton
-    fun provideInterceptors(): Set<Interceptor> {
-        return setOf()
-    }
-
-    @Provides
-    @Singleton
-    @IntoSet
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(
             if (BuildConfig.DEBUG){
@@ -72,8 +62,6 @@ class RemoteModule {
     }
 
     @Provides
-    @Singleton
-    @IntoSet
     fun provideAuthorizationInterceptor(): AuthorizationInterceptor {
         return AuthorizationInterceptor()
     }

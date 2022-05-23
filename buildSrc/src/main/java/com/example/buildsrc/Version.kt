@@ -20,6 +20,7 @@ object Version {
         const val material = "1.6.0"
         const val navigation = "2.4.2"
         const val lifecycle = "2.4.1"
+        const val coroutines = "1.6.1"
         const val retrofit = "2.9.0"
         const val hilt = "2.41"
         const val room = "2.4.2"
@@ -28,6 +29,7 @@ object Version {
         const val shimmer = "0.5.0"
         const val dataStore = "1.0.0"
         const val detekt = "1.20.0"
+        const val javaInject = "1"
     }
 
     object TestLibs {

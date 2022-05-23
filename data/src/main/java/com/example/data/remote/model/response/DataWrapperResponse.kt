@@ -1,4 +1,4 @@
-package com.example.data.remote.response
+package com.example.data.remote.model.response
 
 data class DataWrapperResponse(
     val copyright: String,

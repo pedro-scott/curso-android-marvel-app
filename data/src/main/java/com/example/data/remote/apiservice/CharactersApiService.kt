@@ -1,6 +1,6 @@
 package com.example.data.remote.apiservice
 
-import com.example.data.remote.response.DataWrapperResponse
+import com.example.data.remote.model.response.DataWrapperResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
