@@ -30,6 +30,8 @@ object Dependencies {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Libs.lifecycle}"
         const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.Libs.lifecycle}"
         const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Libs.lifecycle}"
+        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Libs.coroutines}"
+        const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Libs.coroutines}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Version.Libs.retrofit}"
         const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Version.Libs.retrofit}"
         const val okHttp = "com.squareup.okhttp3:okhttp"
@@ -38,9 +40,11 @@ object Dependencies {
         const val room = "androidx.room:room-ktx:${Version.Libs.room}"
         const val roomRuntime = "androidx.room:room-runtime:${Version.Libs.room}"
         const val paging = "androidx.paging:paging-runtime-ktx:${Version.Libs.paging}"
+        const val pagingCommon = "androidx.paging:paging-common:${Version.Libs.paging}"
         const val glide = "com.github.bumptech.glide:glide:${Version.Libs.glide}"
         const val shimmer = "com.facebook.shimmer:shimmer:${Version.Libs.shimmer}"
         const val dataStore = "androidx.datastore:datastore-preferences:${Version.Libs.dataStore}"
+        const val javaInject = "javax.inject:javax.inject:${Version.Libs.javaInject}"
     }
 
     object Kapt {
@@ -95,6 +99,14 @@ object Dependencies {
         val listAndroidTest = listOf(
             AndroidTestLibs.junit,
             AndroidTestLibs.espresso
+        )
+    }
+
+    object DomainModule {
+        val listLibs = listOf(
+            Libs.coroutinesCore,
+            Libs.pagingCommon,
+            Libs.javaInject
         )
     }
 
