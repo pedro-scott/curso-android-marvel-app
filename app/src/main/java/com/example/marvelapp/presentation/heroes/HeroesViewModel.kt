@@ -16,6 +16,9 @@ class HeroesViewModel @Inject constructor(
     override fun handle(intent: HeroesIntent) {
         when (intent) {
             is HeroesIntent.LoadHeroes -> handleLoadHeroes(intent.query)
+            is HeroesIntent.RefreshLoading -> handleRefreshLoading(intent.isLoading)
+            is HeroesIntent.RefreshError -> handleRefreshError()
+            is HeroesIntent.RefreshList -> handleRefreshHeroes()
         }
     }
 
@@ -25,5 +28,17 @@ class HeroesViewModel @Inject constructor(
             .let { heroesFlow ->
                 _state.update { HeroesState.ShowHeroes(heroesFlow) }
             }
+    }
+
+    private fun handleRefreshLoading(isLoading: Boolean) {
+        _state.update { HeroesState.HeroesLoading(isLoading) }
+    }
+
+    private fun handleRefreshError() {
+        _state.update { HeroesState.HeroesError }
+    }
+
+    private fun handleRefreshHeroes() {
+        _state.update { HeroesState.HeroesRefresh }
     }
 }

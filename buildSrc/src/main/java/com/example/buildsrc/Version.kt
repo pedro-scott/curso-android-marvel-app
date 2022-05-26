@@ -26,7 +26,7 @@ object Version {
         const val room = "2.4.2"
         const val paging = "3.1.1"
         const val glide = "4.12.0"
-        const val shimmer = "0.5.0"
+        const val veilLayout = "1.1.2"
         const val dataStore = "1.0.0"
         const val detekt = "1.20.0"
         const val javaInject = "1"

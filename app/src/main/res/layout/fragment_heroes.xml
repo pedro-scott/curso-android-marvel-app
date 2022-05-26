@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<ViewFlipper
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/heroesFlipper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.heroes.HeroesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.skydoves.androidveil.VeilRecyclerFrameView
         android:id="@+id/heroesListRv"
+        style="@style/MarvelVeilRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:overScrollMode="never"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_hero_layout" />
+        app:veilFrame_layout="@layout/item_hero_layout" />
 
-</FrameLayout>
+    <include
+        android:id="@+id/heroesErrorLayout"
+        layout="@layout/error_layout" />
+
+</ViewFlipper>

@@ -7,6 +7,8 @@
 
     <!--Paddings-->
     <dimen name="paddingMedium">8dp</dimen>
+    <dimen name="paddingDefault">16dp</dimen>
+    <dimen name="paddingLarge">24dp</dimen>
 
     <!--Radius-->
     <dimen name="defaultRadius">4dp</dimen>
@@ -15,5 +17,8 @@
     <dimen name="heroBannerHeight">230dp</dimen>
 
     <!--Text Sizes-->
+    <dimen name="textSmall">16sp</dimen>
+    <dimen name="textMedium">18sp</dimen>
     <dimen name="textLarge">24sp</dimen>
+    <dimen name="textXLarge">28sp</dimen>
 </resources>
