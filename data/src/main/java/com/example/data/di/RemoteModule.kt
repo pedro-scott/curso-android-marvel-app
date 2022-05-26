@@ -6,6 +6,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.ElementsIntoSet
+import dagger.multibindings.IntoSet
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -38,20 +41,27 @@ class RemoteModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(
-        loggingInterceptor: HttpLoggingInterceptor,
-        authorizationInterceptor: AuthorizationInterceptor
+        interceptors: @JvmSuppressWildcards(true) Set<Interceptor>
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
-            .addInterceptor(loggingInterceptor)
-            .addInterceptor(authorizationInterceptor)
+            .apply {
+                interceptors.forEach { addInterceptor(it) }
+            }
             .build()
     }
 
     @Provides
-    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    @ElementsIntoSet
+    fun provideInterceptors(): Set<Interceptor> {
+        return setOf()
+    }
+
+    @Provides
+    @IntoSet
+    fun provideHttpLoggingInterceptor(): Interceptor {
         return HttpLoggingInterceptor().setLevel(
             if (BuildConfig.DEBUG){
                 HttpLoggingInterceptor.Level.BODY
@@ -62,7 +72,8 @@ class RemoteModule {
     }
 
     @Provides
-    fun provideAuthorizationInterceptor(): AuthorizationInterceptor {
+    @IntoSet
+    fun provideAuthorizationInterceptor(): Interceptor {
         return AuthorizationInterceptor()
     }
 

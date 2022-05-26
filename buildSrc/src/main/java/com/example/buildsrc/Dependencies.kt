@@ -42,7 +42,7 @@ object Dependencies {
         const val paging = "androidx.paging:paging-runtime-ktx:${Version.Libs.paging}"
         const val pagingCommon = "androidx.paging:paging-common:${Version.Libs.paging}"
         const val glide = "com.github.bumptech.glide:glide:${Version.Libs.glide}"
-        const val shimmer = "com.facebook.shimmer:shimmer:${Version.Libs.shimmer}"
+        const val veilLayout = "com.github.skydoves:androidveil:${Version.Libs.veilLayout}"
         const val dataStore = "androidx.datastore:datastore-preferences:${Version.Libs.dataStore}"
         const val javaInject = "javax.inject:javax.inject:${Version.Libs.javaInject}"
     }
@@ -77,10 +77,11 @@ object Dependencies {
             Libs.viewModel,
             Libs.liveData,
             Libs.runtime,
+            Libs.coroutinesAndroid,
             Libs.hilt,
             Libs.paging,
             Libs.glide,
-            Libs.shimmer
+            Libs.veilLayout
         )
 
         val listKapt = listOf(
