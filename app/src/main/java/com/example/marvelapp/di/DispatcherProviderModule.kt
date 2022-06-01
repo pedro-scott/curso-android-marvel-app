@@ -1,7 +1,7 @@
 package com.example.marvelapp.di
 
-import com.example.domain.usecase.GetHeroesUseCase
-import com.example.domain.usecase.GetHeroesUseCaseImpl
+import com.example.marvelapp.util.dispatcher.DefaultDispatcherProvider
+import com.example.marvelapp.util.dispatcher.DispatcherProvider
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -10,9 +10,9 @@ import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
 @InstallIn(ViewModelComponent::class)
-interface UseCaseModule {
+interface DispatcherProviderModule {
 
     @Binds
     @ViewModelScoped
-    fun bindGetHeroesUseCase(useCase: GetHeroesUseCaseImpl): GetHeroesUseCase
+    fun bindDispatcherProvider(provider: DefaultDispatcherProvider): DispatcherProvider
 }

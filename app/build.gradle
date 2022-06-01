@@ -34,14 +34,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
     }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/LICENSE.md")
+        resources.excludes.add("META-INF/LICENSE-notice.md")
+    }
+
     buildFeatures {
         viewBinding true
     }
@@ -51,8 +65,9 @@ dependencies {
     implementation project(':domain')
     implementation project(':data')
 
+    testImplementation project(':baseTest')
+
     Dependencies.AppModule.listLibs.forEach { dependency -> implementation dependency }
-    Dependencies.AppModule.listKapt.forEach {dependency -> kapt dependency }
-    Dependencies.AppModule.listTest.forEach {dependency -> testImplementation dependency }
-    Dependencies.AppModule.listAndroidTest.forEach {dependency -> androidTestImplementation dependency }
+    Dependencies.AppModule.listKapt.forEach { dependency -> kapt dependency }
+    Dependencies.AppModule.listAndroidTest.forEach { dependency -> androidTestImplementation dependency }
 }
