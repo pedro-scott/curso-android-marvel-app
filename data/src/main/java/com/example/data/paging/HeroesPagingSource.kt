@@ -45,7 +45,7 @@ class HeroesPagingSource(
         private const val MARVEL_API_FILTER_NAME_QUERY = "nameStartsWith"
 
         // PAGING
-        private const val INITIAL_OFFSET = 0
-        private const val LIMIT_PER_PAGE = 20
+        const val INITIAL_OFFSET = 0
+        const val LIMIT_PER_PAGE = 20
     }
 }
