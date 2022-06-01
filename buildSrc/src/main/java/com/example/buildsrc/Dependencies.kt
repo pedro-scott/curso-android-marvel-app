@@ -54,10 +54,11 @@ object Dependencies {
     }
 
     object TestLibs {
-        const val junit = "junit:junit:${Version.TestLibs.junit}"
+        const val junit = "org.junit.jupiter:junit-jupiter:${Version.TestLibs.junit}"
         const val core = "androidx.arch.core:core-testing:${Version.TestLibs.core}"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.TestLibs.coroutines}"
-        const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.TestLibs.mockito}"
+        const val mockito = "org.mockito.kotlin:mockito-kotlin:${Version.TestLibs.mockito}"
+        const val mockitoJupiter = "org.mockito:mockito-junit-jupiter:${Version.TestLibs.mockitoJupiter}"
         const val room = "androidx.room:room-testing:${Version.TestLibs.room}"
     }
 
@@ -88,13 +89,6 @@ object Dependencies {
             Kapt.hilt,
             Kapt.room,
             Kapt.glide
-        )
-
-        val listTest = listOf(
-            TestLibs.junit,
-            TestLibs.core,
-            TestLibs.coroutines,
-            TestLibs.mockito
         )
 
         val listAndroidTest = listOf(
@@ -131,11 +125,17 @@ object Dependencies {
         )
 
         val listTest = listOf(
+            TestLibs.room
+        )
+    }
+
+    object BaseTestModule {
+        val listTest = listOf(
             TestLibs.junit,
             TestLibs.core,
             TestLibs.coroutines,
             TestLibs.mockito,
-            TestLibs.room
+            TestLibs.mockitoJupiter
         )
     }
 }

@@ -9,16 +9,20 @@ import com.example.domain.repository.HeroesRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetHeroesUseCase @Inject constructor(
-    private val repository: HeroesRepository
-) : BaseUseCase<GetHeroesUseCase.Params, PagingData<Hero>> {
-
-    override fun invoke(params: Params): Flow<PagingData<Hero>> =
-        Pager(
-            config = PagingConfig(pageSize = PAGE_SIZE)
-        ) { repository.getHeroes(params.query) }.flow
-
+interface GetHeroesUseCase : BaseUseCase<GetHeroesUseCase.Params, PagingData<Hero>> {
     data class Params(val query: String)
+}
+
+class GetHeroesUseCaseImpl @Inject constructor(
+    private val repository: HeroesRepository
+) : GetHeroesUseCase {
+
+    override fun invoke(params: GetHeroesUseCase.Params): Flow<PagingData<Hero>> =
+        repository.getHeroes(params.query).let { pagingSource ->
+            Pager(
+                config = PagingConfig(pageSize = PAGE_SIZE)
+            ) { pagingSource }.flow
+        }
 
     companion object {
         // PAGING

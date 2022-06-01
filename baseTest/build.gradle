@@ -10,12 +10,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-test {
-    useJUnitPlatform()
-}
-
 dependencies {
-    testImplementation project(':baseTest')
-
-    Dependencies.DomainModule.listLibs.forEach { dependency -> implementation dependency }
+    Dependencies.BaseTestModule.listTest.forEach { dependency -> api dependency }
 }
