@@ -5,7 +5,7 @@ object Version {
     object Classpaths {
         const val gradle = "7.1.1"
         const val kotlin = "1.6.21"
-        const val hilt = "2.41"
+        const val hilt = "2.42"
         const val safeArgs = "2.4.2"
     }
 
@@ -20,9 +20,9 @@ object Version {
         const val material = "1.6.0"
         const val navigation = "2.4.2"
         const val lifecycle = "2.4.1"
-        const val coroutines = "1.6.1"
+        const val coroutines = "1.6.2"
         const val retrofit = "2.9.0"
-        const val hilt = "2.41"
+        const val hilt = "2.42"
         const val room = "2.4.2"
         const val paging = "3.1.1"
         const val glide = "4.12.0"
@@ -33,10 +33,11 @@ object Version {
     }
 
     object TestLibs {
-        const val junit = "4.13.2"
+        const val junit = "5.8.2"
         const val core = "2.1.0"
-        const val coroutines = "1.5.1"
-        const val mockito = "2.2.0"
+        const val coroutines = "1.6.2"
+        const val mockito = "4.0.0"
+        const val mockitoJupiter = "4.6.0"
         const val room = "2.4.2"
     }
 
